@@ -1,0 +1,52 @@
+﻿.col-md-4, .col-xs-4 {
+    border: 2px solid;
+    vertical-align: middle;
+    height: 15%;
+    text-align: center;
+}
+
+.selected {
+    color: dodgerblue;
+    background: #F2F2F2;
+}
+
+.correctly-selected {
+    color: green;
+    background: #F2F2F2;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 85%;
+}
+
+#submitCode {
+    margin-top: 5%;
+}
+
+input[type="text"]
+{
+    font-size:24px;
+}
+
+h1, h2, h3, input, button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#cr {
+    position: absolute;
+    bottom: 0;
+}
+
+#host {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 90%;
+    padding-top: 10%;
+    vertical-align: middle;
+}
+
+a, a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}

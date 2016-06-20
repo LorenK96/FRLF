@@ -1,0 +1,213 @@
+﻿@model FRLF.Models.HomeModel
+
+<!--
+FRLF, built by Loren Kuich, Jun 2016    
+-->
+
+<html>
+<head>
+    <!-- JQuery, Bootstrap, font, animate -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="text/javascript">
+        $(function () {
+            var view = @Model.View;
+            showView(view);
+            
+            if (currentGrid === 2)
+                codeLen = 3;
+        });
+    </script>
+
+</head>
+<body>
+    <form>
+        <div id="host">
+            <div id="login">
+                <h1 class="animated fadeIn">Enter a compound</h1>
+                <br />
+                <input class="animated fadeInUp" id="CodeEntry" type="text" autocomplete="off" />
+                <button id="submitCode" class="btn btn-default btn-lg btn-primary animated fadeInUp" type="button" onclick="onCodeSubmit()">Submit</button>
+                <br />
+                <br />
+                <h3 id="error-code" style="color: red;">Incorrect compound</h3>
+                <h3 id="loading-code" style="color: orange;">Loading PowerPoint...</h3>
+
+                <div id="cr"><h4 class="animated fadeIn"><i><a href="http://lkuich.com">Loren Kuich - 2016</a></i></h4></div>
+            </div>
+
+            <div class="content" id="grid1">
+                <h2 class="animated fadeIn">Enter Punch Code</h2>
+                <br />
+                <br />
+                <div class="row" id="row1">
+                    <div class="col-xs-4 col-md-4" id="btn1">
+                        <h2>1</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn2">
+                        <h2>2</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn3">
+                        <h2>3</h2>
+                    </div>
+                </div>
+
+                <div class="row" id="row2">
+                    <div class="col-xs-4 col-md-4" id="btnCloud">
+                        <img src="img/Cloud.png" style="padding-top: 10px;" />
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn5">
+                        <h2>5</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btnSun">
+                        <img src="img/Sun.png" />
+                    </div>
+                </div>
+
+                <div class="row" id="row3">
+                    <div class="col-xs-4 col-md-4" id="btn7">
+                        <h2>7</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn8">
+                        <h2>8</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn9">
+                        <h2>9</h2>
+                    </div>
+                </div>
+
+                <div class="row" id="row4">
+                    <div class="col-xs-4 col-md-4" id="btnLightning">
+                        <img src="img/Lightning.png" />
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn0">
+                        <h2>0</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btnWind">
+                        <img src="img/Wind.png" style="height: 100%; width: auto;" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content" id="grid2">
+                <h2 class="animated fadeIn">Enter Punch Code</h2>
+                <br />
+                <br />
+                <div class="row" id="row1">
+                    <div class="col-xs-4 col-md-4" id="btn1">
+                        <h2>1</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn2">
+                        <h2>2</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn3">
+                        <h2>3</h2>
+                    </div>
+                </div>
+
+                <div class="row" id="row2">
+                    <div class="col-xs-4 col-md-4" id="btnString">
+                        <img src="img/String.png" />
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn5">
+                        <h2>5</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btnFlammable">
+                        <img src="img/Flammable.png" />
+                    </div>
+                </div>
+
+                <div class="row" id="row3">
+                    <div class="col-xs-4 col-md-4" id="btn7">
+                        <h2>7</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn8">
+                        <h2>8</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn9">
+                        <h2>9</h2>
+                    </div>
+                </div>
+
+                <div class="row" id="row4">
+                    <div class="col-xs-4 col-md-4" id="btnId">
+                        <img src="img/ID.png" />
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn0">
+                        <h2>0</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btnRadioactive">
+                        <img src="img/Radioactive.png" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content" id="grid3">
+                <h2 class="animated fadeIn">Enter Punch Code</h2>
+                <br />
+                <br />
+                <div class="row" id="row1">
+                    <div class="col-xs-4 col-md-4" id="btn1">
+                        <h2>1</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn2">
+                        <h2>2</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn3">
+                        <h2>3</h2>
+                    </div>
+                </div>
+
+                <div class="row" id="row2">
+                    <div class="col-xs-4 col-md-4" id="btnPastDue">
+                        <img src="img/Past_Due.png" style="padding-top: 10px;" />
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn5">
+                        <h2>5</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btnCash">
+                        <img src="img/Cash.png" />
+                    </div>
+                </div>
+
+                <div class="row" id="row3">
+                    <div class="col-xs-4 col-md-4" id="btn7">
+                        <h2>7</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn8">
+                        <h2>8</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn9">
+                        <h2>9</h2>
+                    </div>
+                </div>
+
+                <div class="row" id="row4">
+                    <div class="col-xs-4 col-md-4" id="btnPhone">
+                        <img src="img/iPhone.png" />
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btn0">
+                        <h2>0</h2>
+                    </div>
+                    <div class="col-xs-4 col-md-4" id="btnWallet">
+                        <img src="img/Wallet.png" />
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <h3 id="valid-grid" style="color: green;">Success!<br />Loading PowerPoint...</h3>
+            <h3 id="invalid-grid" style="color: red;">Incorrect Entry, try again!</h3>
+        </div>
+    </form>
+</body>
+</html>
