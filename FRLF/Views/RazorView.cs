@@ -100,9 +100,23 @@ WriteLiteral(">\r\n        $(function () {\r\n            var view = ");
 
 #line default
 #line hidden
-WriteLiteral(";\r\n            showView(view);\r\n            \r\n            if (currentGrid === 2)\r" +
-"\n                codeLen = 3;\r\n        });\r\n    </script>\r\n\r\n</head>\r\n<body>\r\n  " +
-"  <form>\r\n        <div");
+WriteLiteral(@";
+            showView(view);
+            
+            if (currentGrid === 2)
+                codeLen = 3;
+
+            $(""#CodeEntry"").keyup(function(event) {
+                if (event.keyCode == 13)
+                    onCodeSubmit();
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <form>
+        <div");
 
 WriteLiteral(" id=\"host\"");
 

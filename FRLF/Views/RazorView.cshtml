@@ -23,6 +23,11 @@ FRLF, built by Loren Kuich, Jun 2016
             
             if (currentGrid === 2)
                 codeLen = 3;
+
+            $("#CodeEntry").keyup(function(event) {
+                if (event.keyCode == 13)
+                    onCodeSubmit();
+            });
         });
     </script>
 
