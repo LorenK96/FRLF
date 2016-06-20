@@ -130,7 +130,7 @@ WriteLiteral(" class=\"animated fadeIn\"");
 
 WriteLiteral(">Enter a compound</h1>\r\n                <br />\r\n                <input");
 
-WriteLiteral(" class=\"animated fadeInUp\"");
+WriteLiteral(" class=\"form-control animated fadeInUp\"");
 
 WriteLiteral(" id=\"CodeEntry\"");
 
