@@ -6,16 +6,15 @@ FRLF, built by Loren Kuich, Jun 2016
 
 <html>
 <head>
-    <!-- JQuery, Bootstrap, font, animate -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    
-    <script type="text/javascript" src="js/main.js"></script>
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+    <!-- JQuery, Bootstrap -->
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">
         $(function () {
             var view = @Model.View;
@@ -28,6 +27,9 @@ FRLF, built by Loren Kuich, Jun 2016
                 if (event.keyCode == 13)
                     onCodeSubmit();
             });
+
+            // Check for network
+            checkInternet();
         });
     </script>
 
@@ -44,7 +46,12 @@ FRLF, built by Loren Kuich, Jun 2016
                 <br />
                 <h3 id="error-code" style="color: red;">Incorrect compound</h3>
                 <h3 id="loading-code" style="color: orange;">Loading PowerPoint...</h3>
-
+                <div id="no-internet">
+                    <h3 style="color: red;">No internet connection!<br />Please connect to the internet and try again!</h3>
+                    <button type="button" class="btn btn-danger btn-lg" onclick="pressBack()">
+                        <span aria-hidden="true"></span> Retry
+                    </button>
+                </div>
                 <div id="cr"><h4 class="animated fadeIn"><i><a href="http://lkuich.com">Loren Kuich - 2016</a></i></h4></div>
             </div>
 

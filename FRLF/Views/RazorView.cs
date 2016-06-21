@@ -32,50 +32,7 @@ public FRLF.Models.HomeModel Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("<!--\r\nFRLF, built by Loren Kuich, Jun 2016    \r\n-->\r\n\r\n<html>\r\n<head>\r\n    <!-- J" +
-"Query, Bootstrap, font, animate -->\r\n    <script");
-
-WriteLiteral(" src=\"https://code.jquery.com/jquery-2.2.4.min.js\"");
-
-WriteLiteral(" integrity=\"sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=\"");
-
-WriteLiteral(" crossorigin=\"anonymous\"");
-
-WriteLiteral("></script>\r\n    <link");
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\"");
-
-WriteLiteral(" integrity=\"sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkz" +
-"s7\"");
-
-WriteLiteral(" crossorigin=\"anonymous\"");
-
-WriteLiteral(">\r\n    <script");
-
-WriteLiteral(" src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"");
-
-WriteLiteral(" integrity=\"sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7" +
-"xS\"");
-
-WriteLiteral(" crossorigin=\"anonymous\"");
-
-WriteLiteral("></script>\r\n    <link");
-
-WriteLiteral(" href=\'https://fonts.googleapis.com/css?family=Open+Sans\'");
-
-WriteLiteral(" rel=\'stylesheet\'");
-
-WriteLiteral(" type=\'text/css\'");
-
-WriteLiteral(">\r\n    \r\n    <script");
-
-WriteLiteral(" type=\"text/javascript\"");
-
-WriteLiteral(" src=\"js/main.js\"");
-
-WriteLiteral("></script>\r\n    <link");
+WriteLiteral("<!--\r\nFRLF, built by Loren Kuich, Jun 2016    \r\n-->\r\n\r\n<html>\r\n<head>\r\n    <link");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
@@ -87,14 +44,46 @@ WriteLiteral(" rel=\"stylesheet\"");
 
 WriteLiteral(" href=\"css/style.css\"");
 
-WriteLiteral(" />\r\n\r\n    <script");
+WriteLiteral(" />\r\n    <link");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteLiteral(" href=\"css/bootstrap.min.css\"");
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" href=\'https://fonts.googleapis.com/css?family=Open+Sans\'");
+
+WriteLiteral(" rel=\'stylesheet\'");
+
+WriteLiteral(" type=\'text/css\'");
+
+WriteLiteral(">\r\n\r\n    <!-- JQuery, Bootstrap -->\r\n    <script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(" src=\"js/jquery-2.2.4.min.js\"");
+
+WriteLiteral("></script>\r\n    <script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(" src=\"js/bootstrap.min.js\"");
+
+WriteLiteral("></script>\r\n    <script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(" src=\"js/main.js\"");
+
+WriteLiteral("></script>\r\n    <script");
 
 WriteLiteral(" type=\"text/javascript\"");
 
 WriteLiteral(">\r\n        $(function () {\r\n            var view = ");
 
 
-#line 21 "RazorView.cshtml"
+#line 20 "RazorView.cshtml"
                   Write(Model.View);
 
 
@@ -110,6 +99,9 @@ WriteLiteral(@";
                 if (event.keyCode == 13)
                     onCodeSubmit();
             });
+
+            // Check for network
+            checkInternet();
         });
     </script>
 
@@ -161,7 +153,29 @@ WriteLiteral(" id=\"loading-code\"");
 
 WriteLiteral(" style=\"color: orange;\"");
 
-WriteLiteral(">Loading PowerPoint...</h3>\r\n\r\n                <div");
+WriteLiteral(">Loading PowerPoint...</h3>\r\n                <div");
+
+WriteLiteral(" id=\"no-internet\"");
+
+WriteLiteral(">\r\n                    <h3");
+
+WriteLiteral(" style=\"color: red;\"");
+
+WriteLiteral(">No internet connection!<br />Please connect to the internet and try again!</h3>\r" +
+"\n                    <button");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" class=\"btn btn-danger btn-lg\"");
+
+WriteLiteral(" onclick=\"pressBack()\"");
+
+WriteLiteral(">\r\n                        <span");
+
+WriteLiteral(" aria-hidden=\"true\"");
+
+WriteLiteral("></span> Retry\r\n                    </button>\r\n                </div>\r\n          " +
+"      <div");
 
 WriteLiteral(" id=\"cr\"");
 

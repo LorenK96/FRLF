@@ -41,6 +41,23 @@ function InvokeGridValidation() {
     location.href = "hybrid:" + "ValidateGrid" + "?" + qs;
 }
 
+function checkInternet() {
+    location.href = "hybrid:" + "ValidateInternet" + "?";
+}
+
+function noInternet() {
+    $("#CodeEntry").prop('disabled', true);
+    $("#submitCode").prop('disabled', true);
+
+    var lblNoInternet = $("#no-internet");
+    lblNoInternet.show();
+    lblNoInternet.addClass('animated shake');
+}
+
+function pressBack() {
+    location.href = "hybrid:" + "Refresh" + "?";
+}
+
 function onCodeSubmit() {
     // Submit value to server for validation
     $("#CodeEntry").prop('disabled', true);
@@ -112,6 +129,7 @@ function showView(view) {
     $("#invalid-grid").hide();
     $("#valid-grid").hide();
     $("#loading-code").hide();
+    $("#no-internet").hide();
 
     switch (view) {
         case LOGIN:

@@ -126,6 +126,15 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\js\main.js" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\js\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\css\bootstrap.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\js\jquery-2.2.4.min.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

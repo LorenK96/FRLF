@@ -1,8 +1,10 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Webkit;
 using FRLF.Models;
 using System.Linq;
 using System.Collections.Specialized;
+using System.Net;
 
 namespace FRLF
 {
@@ -20,6 +22,10 @@ namespace FRLF
         {
             switch (method)
             {
+                case "Refresh":
+                    Activity.OnBackPressed();
+                    break;
+
                 case "CodeEntry":
                     ValidateCode(parameters, webView);
                     break;
@@ -27,10 +33,19 @@ namespace FRLF
                 case "ValidateGrid":
                     ValidateGrid(parameters, webView);
                     break;
+
+                case "ValidateInternet":
+                    ValidateInternet(webView);
+                    break;
             }
         }
 
         #region Actions
+        public void ValidateInternet(WebView webView) {
+            if (!InternetAvailable())
+                RunJsMethod(webView, "noInternet");
+        }
+
         public void ValidateCode(NameValueCollection parameters, WebView webView)
         {
             var code = parameters["CodeEntry"].ToUpper();
@@ -87,6 +102,21 @@ namespace FRLF
                 OpenPPTRemote(webView, 2);
         }
         #endregion
+
+        public bool InternetAvailable()
+        {
+            try
+            {
+                using (var stream = new WebClient().OpenRead("http://www.google.com"))
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public void OpenPPTRemote(WebView view, int pptId)
         {
